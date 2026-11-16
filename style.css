@@ -1,0 +1,50 @@
+:root{--bg:#f5ebdb;--panel:#fff8ec;--ink:#2b1d12;--mute:#7a6652;--line:#e2d2b8;--acc:#c4641a;--onacc:#fff8ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme: dark){:root{--bg:#17100b;--panel:#231913;--ink:#f3e6d3;--mute:#a8927a;--line:#3a2b20;--acc:#f2a65a;--onacc:#2a1606;color-scheme:dark}}
+html{height:100%}
+body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.45 "Alegreya Sans",system-ui,sans-serif}
+#app{height:100%;display:flex;flex-direction:column;max-width:720px;margin:0 auto}
+header{padding:12px 16px 8px;border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+h1,h2,h3{font-family:"Alegreya",Georgia,serif;margin:0}
+h1{font-size:1.45rem;line-height:1.15}
+.sub{margin:2px 0 0;color:var(--mute);font-size:.9rem}
+.ghost{background:none;border:0;color:var(--mute);font:inherit;font-size:.9rem;padding:6px 8px;cursor:pointer}
+#strip{display:flex;flex-wrap:wrap;gap:4px 8px;margin-top:8px}
+.tm{display:flex;align-items:center;gap:6px;font:inherit;font-size:.88rem;background:none;border:0;color:var(--ink);padding:4px 0;cursor:pointer}
+.tm i{width:10px;height:10px;border-radius:50%;flex:none}
+.tm span{color:var(--mute)}
+.tm.on i{animation:pl 1s infinite}
+@keyframes pl{50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){.tm.on i{animation:none}}
+#note{display:none;margin:6px 0 0;font-size:.85rem;color:var(--acc)}
+#list{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.m{max-width:88%;padding:9px 12px;border-radius:14px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--c,var(--line))}
+.m b{display:block;font:700 .95rem "Alegreya",Georgia,serif;color:var(--c)}
+.m p{margin:2px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.m time{display:block;margin-top:4px;font-size:.72rem;color:var(--mute)}
+.m.me{align-self:flex-end;background:var(--acc);color:var(--onacc);border:0;border-radius:14px 14px 4px 14px}
+.m.me time{color:inherit;opacity:.7;text-align:right}
+.empty{margin:auto;text-align:center;padding:0 10px}
+.empty p{margin:4px 0 12px;color:var(--mute)}
+.st{display:block;width:100%;margin:6px 0;padding:10px 12px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:var(--ink);font:inherit;cursor:pointer}
+footer{padding:8px 12px 10px;border-top:1px solid var(--line)}
+#tgt{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:center}
+#tgt small{color:var(--mute)}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--mute);border-radius:999px;padding:4px 11px;font:inherit;font-size:.85rem;cursor:pointer}
+.chip.on{color:var(--ink);border-color:var(--c,var(--acc));box-shadow:inset 0 0 0 1px var(--c,var(--acc))}
+.cmp{display:flex;gap:8px;align-items:flex-end}
+textarea,input[type=password],select{font:inherit;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--ink);box-sizing:border-box}
+textarea{flex:1;resize:none;min-height:44px;max-height:120px}
+#send,#btnSave,.btns button:last-child{height:44px;padding:0 18px;border:0;border-radius:12px;background:var(--acc);color:var(--onacc);font:700 1rem "Alegreya",Georgia,serif;cursor:pointer}
+#send:disabled{opacity:.5}
+dialog{width:min(92vw,520px);max-height:86vh;overflow:auto;border:1px solid var(--line);border-radius:16px;background:var(--bg);color:var(--ink);padding:16px}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog label{display:block;margin:12px 0 4px;font-size:.9rem}
+dialog input[type=password],dialog select{width:100%;margin-top:4px}
+.chk{display:flex;gap:8px;align-items:center}
+.hint{margin:6px 0 0;font-size:.82rem;color:var(--mute)}
+h3{margin:12px 0 4px;font-size:1rem}
+pre{white-space:pre-wrap;font:.85rem/1.4 "Alegreya Sans",system-ui,sans-serif;margin:0;color:var(--mute)}
+ul{margin:0;padding-left:18px}
+.btns{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}

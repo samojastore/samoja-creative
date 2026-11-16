@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ruang Koordinasi Tim Konten</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="row"><h1>Ruang koordinasi</h1>
+      <span><button class="ghost" id="btnSet">Pengaturan</button></span></div>
+    <p class="sub">Satu instruksi, semua tim ikut membaca dan menjawab. Ketuk nama tim untuk melihat tugas dan aturannya.</p>
+    <div id="strip"></div>
+    <p id="note"></p>
+  </header>
+  <div id="list" aria-live="polite"></div>
+  <footer>
+    <div id="tgt"></div>
+    <div class="cmp"><textarea id="ta" rows="1" placeholder="Tulis instruksi untuk tim..."></textarea><button id="send">Kirim</button></div>
+  </footer>
+</div>
+
+<dialog id="dlgSet"><form method="dialog">
+  <h2>Pengaturan</h2>
+  <label>API key Anthropic<input id="fKey" type="password" autocomplete="off" placeholder="sk-ant-..."></label>
+  <p class="hint">Disimpan hanya di browser ini (localStorage). Jangan pernah menaruhnya di file atau repo GitHub. Pakai key dengan batas pengeluaran.</p>
+  <label>Model<select id="fModel">
+    <option value="claude-haiku-5-5">Haiku 5.5 (hemat)</option>
+    <option value="claude-sonnet-5-5">Sonnet 5.5 (lebih pintar)</option>
+  </select></label>
+  <label class="chk"><input id="fWeb" type="checkbox"> Izinkan tim Riset mencari di web</label>
+  <div class="btns"><button id="btnClr" type="button" class="ghost">Hapus riwayat</button><button value="cancel" class="ghost">Batal</button><button id="btnSave" value="ok">Simpan</button></div>
+</form></dialog>
+
+<dialog id="dlgTeam"><form method="dialog">
+  <h2 id="tName"></h2>
+  <h3>Tugas</h3><ul id="tTugas"></ul>
+  <h3>Aturan</h3><pre id="tAturan"></pre>
+  <div class="btns"><button>Tutup</button></div>
+</form></dialog>
+
+<script src="teams.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
